@@ -1,0 +1,16 @@
+<nav id="site-navigation" class="main-navigation" role="navigation">
+    <button class="menu-toggle" aria-controls="menu" aria-expanded="false">Menu</button>
+    <div class="menu-main-container">
+        <ul id="menu-main" class="menu">
+            {% for link in site.navigation %}
+                {% assign slice = link.url | slice: 0, 4 %}
+                {% if slice == 'http' %}
+                    {% assign link_url = link.url %}
+                {% else %}
+                    {% assign link_url = link.url | relative_url %}
+                {% endif %}
+                <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="{{ link_url }}">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav><!-- #site-navigation -->

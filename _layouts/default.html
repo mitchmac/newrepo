@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% assign timestamp = site.time | date: '%s' %}
+    <link rel='stylesheet' id='wp-block-library-css'  href='http://localhost/wpthemes/wp-includes/css/dist/block-library/style.min.css?ver=5.2.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='sela-fonts-css'  href='https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C300italic%2C400%2C400italic%2C600%7CDroid+Serif%3A400%2C400italic%7COswald%3A300%2C400&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+    <link rel='stylesheet' id='genericons-css'  href='{{ "/assets/css/genericons.css?v=" | append: timestamp | relative_url }}' type='text/css' media='all' />
+    <link rel='stylesheet' id='sequential-style-css'  href="{{ "/assets/css/style.css?v=" | append: timestamp | relative_url }}" type='text/css' media='all' />
+    <link rel="stylesheet" href="{{ "/assets/css/custom.css?v=" | append: timestamp | relative_url }}">
+    {% seo %}
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ "/feed.xml" | absolute_url }}">
+</head>
+<body class="post-template-default single single-post single-format-standard not-multi-author display-header-text">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+        <a class="skip-link screen-reader-text" href="#content" title="Skip to content">Skip to content</a>
+
+        <div class="site-branding">
+            <h1 class="site-title"><a href="{{ "/index.html" | relative_url }}" rel="home">{{ site.title }}</a></h1>
+            <h2 class="site-description">{{ site.tagline }}</h2>
+        </div><!-- .site-branding -->
+        {% include nav-menu.html %}
+    </header><!-- #masthead -->
+
+    <div id="content" class="site-content">
+
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                {% if page.is_index %}
+                    {{ content }}
+                {% elsif content %}
+                    {% assign post = page %}
+                    {% include post.html %}
+                    <div id="comments" class="comments-area">
+                        {% include disqus.html %}
+                    </div><!-- #comments -->
+                {% endif %}
+
+            </main><!-- #main -->
+        </div><!-- #primary -->
+
+        <div id="secondary" class="widget-area sidebar-widget-area" role="complementary">
+            {% include search.html %}
+            {% include recent.html %}
+        </div><!-- #secondary -->
+    </div><!-- #content -->
+
+    <footer id="colophon" class="site-footer">
+
+        <div class="site-info"  role="contentinfo">
+        </div><!-- .site-info -->
+    </footer><!-- #colophon -->
+</div><!-- #page -->
+
+{% include google_analytics.html %}
+
+<script src="{{ "/assets/js/jquery.min.js?v=" | append: timestamp | relative_url }}"></script>
+<script src="{{ "/assets/js/navigation.js?v=" | append: timestamp | relative_url }}"></script>
+<script src="{{ "/assets/js/skip-link-focus-fix.js?v=" | append: timestamp | relative_url }}"></script>
+<script src="{{ "/assets/js/sela.js?v=" | append: timestamp | relative_url }}"></script>
+<script src="{{ "/assets/js/script.js?v=" | append: timestamp | relative_url }}"></script>
+</body>
+</html>
