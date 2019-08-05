@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact
+
 ---
 {% if site.contact_email %}
 <form action="https://formspree.io/{{ site.contact_email }}" method="POST">
@@ -21,5 +22,5 @@ title: Contact
     </p>
  
 {% else %}
-    <p>Add an e-mail address in the contact_email field in your site's settings/_config.yml to enable the contact form.</p>
+    <p>Add an e-mail address in the contact_email field in your site's settings/_config.yml to enable the contact form!</p>
 {% endif %}
