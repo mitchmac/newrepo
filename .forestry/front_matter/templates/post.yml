@@ -14,3 +14,13 @@ fields:
 - type: list
   name: tags
   label: tags
+- name: number
+  type: number
+  label: Number
+  description: ''
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
